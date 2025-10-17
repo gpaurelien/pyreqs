@@ -1,5 +1,5 @@
-from pyreqs.utils import generate_toml, setup_logging
 from pyreqs.parser import Parser
+from pyreqs.utils import generate_toml, setup_logging
 
 __all__ = [
     "Parser",

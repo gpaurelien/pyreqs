@@ -1,7 +1,5 @@
 import ast
-import logging
 import os
-from typing import Optional, Union
 
 
 class Parser:

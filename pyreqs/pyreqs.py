@@ -12,7 +12,7 @@ def _default_project_name() -> str:
 
 
 def _filter_stdlib(imports: set[str]) -> set[str]:
-    stdlib = getattr(sys, "stdlib_module_names", set())
+    stdlib: set = getattr(sys, "stdlib_module_names", set())
     if not stdlib:
         # Fallback for very old Pythons (not expected here but safe)
         stdlib = set(sys.builtin_module_names)
@@ -83,7 +83,9 @@ def main(argv: list[str] | None = None) -> int:
     logger.info("Scanning project for Python imports...")
     p = Parser()
     discovered_imports = p.scan_project_for_imports()
-    logger.debug("Discovered imports: %s", ", ".join(sorted(discovered_imports)) or "<none>")
+    logger.debug(
+        "Discovered imports: %s", ", ".join(sorted(discovered_imports)) or "<none>"
+    )
 
     third_party = sorted(_filter_stdlib(discovered_imports))
     if third_party:
@@ -113,5 +115,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
-

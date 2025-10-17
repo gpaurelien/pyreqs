@@ -1,5 +1,5 @@
-from typing import Optional
 import logging
+from typing import Optional
 
 
 def setup_logging(verbose: bool = False):
@@ -26,7 +26,7 @@ def generate_toml(
     """Generate a Poetry-compatible pyproject.toml."""
 
     dependencies = dependencies or {}
-    doc = {
+    doc = {  # noqa: F841
         "tool": {
             "poetry": {
                 "name": name,
@@ -35,18 +35,13 @@ def generate_toml(
                 **({"readme": readme} if readme else {}),
                 # 'packages' is optional, map simple list to [{ include = "<name>" }]
                 **(
-                    {
-                        "packages": [
-                            {"include": pkg}
-                            for pkg in (package_includes or [])
-                        ]
-                    }
+                    {"packages": [{"include": pkg} for pkg in (package_includes or [])]}
                     if package_includes
                     else {}
                 ),
                 "dependencies": {
                     "python": python,
-                    **dependencies,
+                    **dependencies,  # type: ignore
                 },
                 # 'group.dev.dependencies' is optional
                 **(
