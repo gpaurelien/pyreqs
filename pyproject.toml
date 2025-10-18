@@ -1,0 +1,17 @@
+
+[tool.poetry]
+name = "pyreqs"
+version = "0.0.1"
+description = ""
+readme = "README.md"
+packages = [
+    { include = "" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyreqs = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
