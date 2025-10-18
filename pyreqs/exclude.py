@@ -1,4 +1,3 @@
-
 FOLDERS_TO_EXCLUDE = [
     ".venv",
     "__pycache__",

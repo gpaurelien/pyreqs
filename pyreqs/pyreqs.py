@@ -3,8 +3,8 @@ import os
 import sys
 from pathlib import Path
 
-from .parser import Parser
-from .utils import generate_toml, setup_logging
+from pyreqs import Parser
+from pyreqs import generate_toml, setup_logging
 
 
 def _default_project_name() -> str:

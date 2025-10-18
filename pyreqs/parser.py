@@ -1,5 +1,6 @@
 import ast
 import os
+
 from pyreqs.exclude import FOLDERS_TO_EXCLUDE
 
 
@@ -30,8 +31,9 @@ class Parser:
     def scan_project_for_imports(self) -> set:
         imports = set()
         for path, _, files in os.walk(self.directory):
-            if (any(excluded in path for excluded in FOLDERS_TO_EXCLUDE) or
-                any(part.startswith('.') for part in path.split(os.sep))):
+            if any(excluded in path for excluded in FOLDERS_TO_EXCLUDE) or any(
+                part.startswith(".") for part in path.split(os.sep)
+            ):
                 continue
             directory: str = path.split("/")[-1]
             self.filespath[directory] = []

@@ -1,6 +1,6 @@
+from pyreqs.exclude import FOLDERS_TO_EXCLUDE
 from pyreqs.parser import Parser
 from pyreqs.utils import generate_toml, setup_logging
-from pyreqs.exclude import FOLDERS_TO_EXCLUDE
 
 __all__ = [
     "Parser",
